@@ -5,13 +5,14 @@ Skyapp is build on Ionic framework and uses the Skype Web API from microsoft, Th
 
 ## Contributing
 Want to help Skyapp? Great! We welcome pull requests, follow these steps to contribute:
-1. Check the Issues tab.
-2. Pick an issue that nobody has claimed and start working on it. If your issue isn't on board, open an issue.
-3. Fork the project. work on your forked copy.
-4. Create a branch specific to the issue or feature you are working on. Push your work to that branch.
-5. Name the branch something like ```fix/xxx``` or ```feature/xxx``` where ```xxx``` is a short description of the changes or feature you are attempting to add.
-6. You should have ESLint running in your editor to verify your code pass the Javascript Style rules.
-7. Once your code is ready, submit a pull request from your branch. We'll do a quick code review and give you a feedback.
+
+1.  Check the Issues tab.
+2.  Pick an issue that nobody has claimed and start working on it. If your issue isn't on board, open an issue.
+3.  Fork the project. work on your forked copy.
+4.  Create a branch specific to the issue or feature you are working on. Push your work to that branch.
+5.  Name the branch something like ```fix/xxx``` or ```feature/xxx``` where ```xxx``` is a short description of the changes or feature you are attempting to add.
+6.  You should have ESLint running in your editor to verify your code pass the Javascript Style rules.
+7.  Once your code is ready, submit a pull request from your branch. We'll do a quick code review and give you a feedback.
 
 ## Questions?
 Feel free to contact me [@oryanmi](http://www.twitter.com/oryanmi) or email [corp@youcc.net](mailto:corp@youcc.net)
