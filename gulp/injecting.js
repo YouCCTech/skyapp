@@ -23,7 +23,7 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
         {relative: true}))
     .pipe(
       $.inject( // inject compiled css
-        gulp.src('.tmp/*/styles/*.css', {read: false})
+        gulp.src('.tmp/**/*.css', {read: false})
           .pipe($.naturalSort()),
         {
           ignorePath: '../.tmp',
@@ -36,7 +36,10 @@ gulp.task('inject-all', ['styles', 'wiredep', 'bower-fonts', 'environment', 'bui
 gulp.task('styles', ['clean'], function () {
 
   // compile css starting from each module's scss
-  return gulp.src('app/*/styles/!(_)*.scss')
+  return gulp.src([
+    '!app/bower_components/**/*.scss',
+    'app/**/!(_)*.scss'
+  ])
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync().on('error', $.sass.logError))

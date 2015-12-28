@@ -1,0 +1,22 @@
+<ion-view class="light-grey new-group-container-step1">
+
+  <ion-nav-title>
+    {{'newGroup' | translate}}
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear btn-search" ng-click="vm.next(vm.form.name)">
+      <i class="icon ion-checkmark"></i>
+      {{'next' | translate}}
+    </button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+
+    <div class="list list-inset">
+      <div class="item item-input">
+        <input type="text" class="name-input" placeholder="{{'groupName' | translate}}" ng-model="vm.form.name" required="" />
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

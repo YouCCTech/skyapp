@@ -62,7 +62,7 @@ gulp.task('build-app', ['clean', 'inject-all'], function () {
 gulp.task('build-templates', ['clean'], function () {
   return gulp.src(paths.templates)
   .pipe($.if(options.minify, $.minifyHtml()))
-  .pipe(gulp.dest(paths.dist));
+  .pipe(gulp.dest(paths.dist + '/main'));
 });
 
 // copy assets, wait for fonts

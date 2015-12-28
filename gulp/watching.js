@@ -8,6 +8,7 @@ var bs = require('browser-sync').create();
 
 var bsInit = function (paths, openOverride) {
   var bsOptions = {
+    port: 8080,
     server: {
       baseDir: paths
     }
@@ -49,7 +50,7 @@ gulp.task('watch', ['inject-all'], function () {
     }
   });
   // watch for changes in scss
-  gulp.watch('app/*/styles/**/*.scss', ['styles']);
+  gulp.watch('app/**/*.scss', ['styles']);
   // watch for changes in environment files and new config files
   gulp.watch([
     'app/main/constants/env-*.json',

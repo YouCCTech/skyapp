@@ -1,0 +1,73 @@
+<ion-view class="chat-container" cache-view="false">
+
+  <ion-nav-title>
+    <div class='msg-header-username'>{{vm.participants[0].displayName() | displayname}} {{vm.participants.length > 1 ? '+' + (vm.participants.length-1) : ''}}</div>
+  </ion-nav-title>
+  <!--<ion-nav-buttons side="right">-->
+    <!--<button class="button button-clear" ng-click="vm.openChooseContactModal()">-->
+      <!--<i class="icon ion-person-add"></i>-->
+    <!--</button>-->
+  <!--</ion-nav-buttons>-->
+
+  <div class="loader-center" ng-if="!vm.uiStates.doneLoading">
+    <div class="loader">
+      <ion-spinner icon="ripple"></ion-spinner>
+    </div>
+  </div>
+
+  <ion-content has-bouncing="true" class="has-header" ng-class="{'typing-shown': vm.uiStates.typingMsg}">
+    <div ng-repeat="message in vm.messages" class="message-wrapper">
+
+      <div ng-if="message.direction !== 'Outgoing'">
+
+        <img class="profile-pic left" ng-src="{{message.avatarUrl}}" fallback-default-avatar-img />
+
+        <div class="chat-bubble left">
+
+          <div class="message" ng-bind-html="message.text | nl2br" autolinker></div>
+          <div class="message-detail">
+            <span class="bold">{{message.username | displayname}} </span><span>{{message.date | amDateFormat:'HH:mm'}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div ng-if="message.direction === 'Outgoing'">
+
+        <img class="profile-pic right" ng-src="{{message.avatarUrl}}" fallback-default-avatar-img />
+
+        <div class="chat-bubble right">
+
+          <div class="message" ng-bind-html="message.text | nl2br" autolinker></div>
+          <div class="message-detail">
+            <span class="bold">{{message.username | displayname}}</span> <span>{{message.date | amDateFormat:'HH:mm'}}</span>
+            <span>
+              <ion-spinner ng-if="message.status === 'Pending'" class="msg-spinner" icon="crescent"></ion-spinner>
+              <i ng-if="message.status === 'Succeeded'" class="icon ion-checkmark-round"></i>
+              <i ng-if="message.status === 'Failed'" class="icon ion-close-round"></i>
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="cf"></div>
+    </div>
+
+  </ion-content>
+
+  <div class="list input-message-box">
+    <div class="item item-input-inset item-typing" ng-show="vm.uiStates.typingMsg">
+      <label class="typing-msg">{{vm.uiStates.typingMsg}}</label>
+    </div>
+    <div class="item item-input-inset">
+      <label class="item-input-wrapper">
+        <input type="text" placeholder="{{'writeMessage' | translate}}"
+               ng-change="vm.updateTyping()" ng-keydown="vm.keydown($event, vm.input.message)" ng-model="vm.input.message">
+      </label>
+      <button class="button send-btn ion-android-send" ng-click="vm.sendMessage(vm.input.message)"></button>
+    </div>
+  </div>
+</ion-view>

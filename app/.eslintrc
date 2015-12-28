@@ -6,8 +6,14 @@
   },
   "globals": {
     "angular": true,
-    "ionic": true
+    "ionic": true,
+    "Autolinker": true,
+    "_": true,
+    "Skype": true,
+    "cordova": true
   },
   "rules": {
+    "no-unused-vars": 0,
+    "no-inner-declarations": 1
   }
 }

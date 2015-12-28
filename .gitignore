@@ -25,5 +25,8 @@
 *.sublime-project
 *.sublime-workspace
 
-# Ignore Web Storm #
+# Ignore Web Storm
 .idea
+
+# ignore env-dev varibles
+app/main/constants/env-dev.json

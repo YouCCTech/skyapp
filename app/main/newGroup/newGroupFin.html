@@ -1,0 +1,28 @@
+<ion-view class="light-grey new-group-container">
+
+  <ion-nav-title>
+    {{'newGroup' | translate}}
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear btn-search" ng-click="vm.createGroup(vm.user.persons)">
+      <i class="icon ion-checkmark"></i>
+      {{'create' | translate}}
+    </button>
+  </ion-nav-buttons>
+
+  <div class="bar bar-subheader bar-light">
+    <h1 class="title">{{'chooseParticipants' | translate}}</h1>
+  </div>
+
+  <ion-content class="has-subheader">
+    <div class="list">
+      <div ng-repeat="contact in vm.user.persons" class="item item-checkbox">
+        <label class="checkbox">
+          <input type="checkbox" ng-model="contact.checked">
+        </label>
+        {{ contact.displayName }}
+      </div>
+    </div>
+  </ion-content>
+
+</ion-view>

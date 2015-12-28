@@ -18,22 +18,31 @@
 
     <!-- build:css main/styles/app.css -->
     <!-- inject:css -->
+    <link rel="stylesheet" href="main/chat/chat.css">
+    <link rel="stylesheet" href="main/conversations/conversations.css">
+    <link rel="stylesheet" href="main/conversations/findContact.css">
+    <link rel="stylesheet" href="main/infra/pop.css">
+    <link rel="stylesheet" href="main/login/login.css">
+    <link rel="stylesheet" href="main/main/layout.css">
+    <link rel="stylesheet" href="main/newChat/newChat.css">
+    <link rel="stylesheet" href="main/newGroup/newGroup.css">
     <link rel="stylesheet" href="main/styles/main.css">
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body ng-app="skyapp">
+  <body ng-app="skyapp" ng-class="{'rtl': Language.isRtl()}">
 
-    <!-- the nav bar will be updated as we navigate between views -->
-    <!-- <ion-nav-bar> can be removed when using sidemenu (contained in menu.html) -->
-    <ion-nav-bar class="bar-assertive">
-      <ion-nav-back-button></ion-nav-back-button>
-    </ion-nav-bar>
     <!-- the current view will be rendered in the <ion-nav-view> directive -->
     <ion-nav-view></ion-nav-view>
 
     <!-- will be a 404 during development -->
     <script src="cordova.js"></script>
+
+    <!-- TODO load skype-web-api scripts dynamically -->
+    <!-- JQuery. Skype Web SDK requires JQuery to work. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- This is the Skype for Web SDK -->
+    <script type="text/javascript" src="https://swx.cdn.skype.com/shared/v/1.1.23.0/SkypeBootstrap.js"></script>
 
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
@@ -49,16 +58,46 @@
     <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <script src="bower_components/localforage/dist/localforage.js"></script>
     <script src="bower_components/angular-localForage/dist/angular-localForage.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/Autolinker.js/dist/Autolinker.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js scripts/app.js -->
     <!-- inject:js -->
     <script src="main/main.js"></script>
-    <script src="main/services/main-serv.js"></script>
-    <script src="main/controllers/menu-ctrl.js"></script>
-    <script src="main/controllers/debug-ctrl.js"></script>
+    <script src="main/newGroup/newGroupStep1.controller.js"></script>
+    <script src="main/newGroup/newGroup.controller.js"></script>
+    <script src="main/newChat/newChat.controller.js"></script>
+    <script src="main/main/sideMenu.controller.js"></script>
+    <script src="main/login/login.controller.js"></script>
+    <script src="main/infra/User.factory.js"></script>
+    <script src="main/infra/storage.service.js"></script>
+    <script src="main/infra/skype.service.js"></script>
+    <script src="main/infra/safeApply.service.js"></script>
+    <script src="main/infra/pop.service.js"></script>
+    <script src="main/infra/Person.factory.js"></script>
+    <script src="main/infra/nl2br.filter.js"></script>
+    <script src="main/infra/Mock.service.js"></script>
+    <script src="main/infra/Message.factory.js"></script>
+    <script src="main/infra/manager.service.js"></script>
+    <script src="main/infra/language.factory.js"></script>
+    <script src="main/infra/GroupConversation.factory.js"></script>
+    <script src="main/infra/fallbackDefaultAvatarImg.js"></script>
+    <script src="main/infra/displayname.filter.js"></script>
+    <script src="main/infra/ConversationsManager.factory.js"></script>
+    <script src="main/infra/Conversation.factory.js"></script>
+    <script src="main/infra/conv.filter.js"></script>
+    <script src="main/infra/autolinker.directive.js"></script>
+    <script src="main/infra/auth.service.js"></script>
+    <script src="main/conversations/findContact.controller.js"></script>
+    <script src="main/conversations/conversations.controller.js"></script>
+    <script src="main/conversations/contactItem.directive.js"></script>
+    <script src="main/conversations/contactItem.controller.js"></script>
     <script src="main/constants/config-const.js"></script>
+    <script src="main/chat/chat.controller.js"></script>
     <script src="app.js"></script>
     <!-- endinject -->
     <!-- endbuild -->

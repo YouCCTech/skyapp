@@ -1,0 +1,16 @@
+<ion-modal-view class="product edit create">
+  <form name="itemEdit" novalidate>
+    <ion-header-bar class="bar-positive fix-buttons">
+      <a class="button" ng-click="vm.closeChooseContactModal()">{{'cancel' | translate}}</a>
+      <h1 class="title">{{'chooseContact' | translate}}</h1>
+    </ion-header-bar>
+    <ion-content has-bouncing="true">
+      <div class="list">
+        <div class="item item-loading" ng-show="vm.user.conversationsLoading">{{'loading' | translate}}...</div>
+        <contact-item ng-repeat="contact in vm.user.conversations"
+                      ng-click="vm.addParticipant(contact)">
+        </contact-item>
+      </div>
+    </ion-content>
+  </form>
+</ion-modal-view>

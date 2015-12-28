@@ -1,0 +1,34 @@
+<ion-view class="light-grey new-chat-container"
+          hide-nav-bar="vm.uiStates.showSearch">
+
+  <ion-nav-title>
+    {{'chooseContact' | translate}}
+  </ion-nav-title>
+  <ion-nav-buttons side="right">
+    <button class="button button-clear btn-search" ng-click="vm.showSearch()">
+      <i class="icon ion-android-search"></i>
+    </button>
+  </ion-nav-buttons>
+
+  <div class="search-form bar bar-header bar-positive item-input-inset" ng-show="vm.uiStates.showSearch">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="{{'search' | translate}}.." ng-model="vm.filter.displayName">
+    </label>
+    <button ng-click="vm.hideSearch()" class="button button-clear" type="button">{{'cancel' | translate}}</button>
+  </div>
+
+  <ion-content>
+    <div class="list" ng-class="{'has-header': vm.uiStates.showSearch}">
+      <div class="item item-icon-left" ng-hide="vm.uiStates.showSearch" ui-sref="layout.newGroup">
+        <i class="icon ion-android-people"></i>
+        {{'createGroup' | translate}}
+      </div>
+      <div class="item item-loading" ng-show="vm.user.conversationsLoading">{{'loading' | translate}}...</div>
+      <contact-item ng-repeat="person in vm.user.persons | filter:vm.filter"
+                    contact="person"
+                    ng-click="vm.user.beginConversationByPerson(person)">
+      </contact-item>
+    </div>
+  </ion-content>
+</ion-view>

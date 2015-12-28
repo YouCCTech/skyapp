@@ -1,0 +1,16 @@
+.bar-header {
+  .rtl & {
+    .button-next {
+      direction: rtl;
+    }
+  }
+}
+
+.new-group-container-step1 {
+  .rtl & {
+    .name-input {
+      text-align: right;
+      direction: rtl;
+    }
+  }
+}

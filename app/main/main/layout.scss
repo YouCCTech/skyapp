@@ -1,0 +1,29 @@
+.side-menu {
+
+  .side-header-container {
+    .signout-btn {
+      font-size: 14px;
+
+      i {
+        &::before {
+          font-size: 18px !important;
+        }
+      }
+    }
+  }
+
+  .profile-text {
+    text-transform: capitalize;
+  }
+}
+
+.incoming-chat-popup {
+  .popup-body {
+    span {
+      text-align: right;
+      direction: rtl;
+      width: 100%;
+      display: inline-block;
+    }
+  }
+}
