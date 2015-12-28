@@ -1,0 +1,56 @@
+.nav-bar-container {
+  .btn-search {
+    margin-right: 10px;
+  }
+}
+
+.conversations-container {
+
+  .item-loading {
+    text-align: center;
+  }
+
+  .rtl & {
+    .search-form {
+      direction: rtl;
+    }
+  }
+}
+
+.contact-item-container {
+  .item-avatar {
+    img {
+      border-radius: 20%;
+    }
+
+    .status-badge {
+      transition: all ease-in 400ms;
+      background: #fff;
+      position: absolute;
+      top: 43px;
+      left: 43px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+
+      &.Online {
+        background: #4CAF50;
+      }
+      &.Offline {
+        background: #78909C;
+      }
+      &.Busy {
+        background: #FF5252;
+      }
+      &.DoNotDisturb {
+        border: 2px solid #FF5252;
+      }
+      &.Away {
+        background: #FFEE58;
+      }
+    }
+  }
+  .msg-preview {
+    color: #868686;
+  }
+}

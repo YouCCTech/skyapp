@@ -1,0 +1,7 @@
+.find-contact-container {
+  .rtl & {
+    .search-form {
+      direction: rtl;
+    }
+  }
+}

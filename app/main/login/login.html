@@ -1,0 +1,30 @@
+<div class="login-holder">
+
+  <ion-content class="has-header">
+    <h1 class="login-title">{{'welcome' | translate}}</h1>
+
+    <form ng-submit="vm.doLogin(vm.loginData)">
+      <div class="list list-inset">
+        <div class="item item-input">
+          <input type="text" placeholder="{{'username' | translate}}" ng-model="vm.loginData.username">
+        </div>
+        <div class="item item-input">
+          <input type="password" placeholder="{{'password' | translate}}" ng-model="vm.loginData.password">
+        </div>
+        <!--<label class="item item-checkbox">-->
+          <!--<label class="checkbox">-->
+            <!--<input type="checkbox">-->
+          <!--</label>-->
+          <!--<span class="text">{{'rememberMe' | translate}}</span>-->
+        <!--</label>-->
+      </div>
+
+      <div class="padding">
+        <button ng-disabled="vm.skypeStates.signInState === null" class="button button-full button-positive" type="submit">{{'connect' | translate}}</button>
+      </div>
+    </form>
+
+
+  </ion-content>
+
+</div>

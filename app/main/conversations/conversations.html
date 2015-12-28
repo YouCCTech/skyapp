@@ -1,0 +1,77 @@
+<ion-view class="light-grey conversations-container"
+          hide-nav-bar="vm.uiStates.showSearch"
+          hide-back-button="true">
+
+  <ion-nav-buttons side="right">
+    <button class="button button-clear btn-search" ng-click="vm.showSearch()">
+      <i class="icon ion-android-search"></i>
+    </button>
+    <button class="button button-clear" ui-sref="layout.newChat">
+      <i class="icon ion-compose"></i>
+    </button>
+  </ion-nav-buttons>
+
+
+  <div class="search-form bar bar-header bar-positive item-input-inset" ng-show="vm.uiStates.showSearch">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios-search placeholder-icon"></i>
+      <input type="search" placeholder="{{'search' | translate}}.." ng-model="vm.uiStates.queryTerm">
+    </label>
+    <button ng-click="vm.hideSearch()" class="button button-clear" type="button">{{'cancel' | translate}}</button>
+  </div>
+
+  <!--Tabs Headers-->
+  <div class="tabs-striped tabs-top tabs-background-positive tabs-color-light" ng-hide="vm.uiStates.showSearch">
+    <div class="tabs">
+      <a class="tab-item"
+         ng-class="{'active': vm.uiStates.activeTab === vm.tabs.groups }"
+         ng-click="vm.selectTab(vm.tabs.groups)">
+        {{'groups' | translate}}
+      </a>
+      <a class="tab-item"
+         ng-class="{'active': vm.uiStates.activeTab === vm.tabs.contacts }"
+         ng-click="vm.selectTab(vm.tabs.contacts)">
+        {{'contacts' | translate}}
+      </a>
+      <a class="tab-item"
+         ng-class="{'active': vm.uiStates.activeTab === vm.tabs.chats }"
+         ng-click="vm.selectTab(vm.tabs.chats)">
+        {{'conversations' | translate}}
+      </a>
+    </div>
+  </div>
+
+  <ion-content>
+    <!--Groups Tab-->
+    <div ng-show="vm.uiStates.activeTab === 'groups'">
+      <div class="list has-header">
+        <contact-item ng-repeat="conversation in vm.user.conversationsManager.conversations | filter: {type: 'GroupConversation'} | convFilter:vm.uiStates.queryTerm"
+                      conversation="conversation"
+                      ng-click="vm.user.beginConversation(conversation)">
+        </contact-item>
+      </div>
+    </div>
+
+    <!--Contacts Tab-->
+    <div ng-show="vm.uiStates.activeTab === 'contacts'">
+      <div class="list has-header">
+        <div class="item item-loading" ng-show="vm.user.personsLoading">{{'loading' | translate}}...</div>
+        <contact-item ng-repeat="person in vm.user.persons | convFilter:vm.uiStates.queryTerm"
+                      contact="person"
+                      ng-click="vm.user.beginConversationByPerson(person)">
+        </contact-item>
+      </div>
+    </div>
+
+    <!--Chats Tab-->
+    <div ng-show="vm.uiStates.activeTab === 'chats'">
+      <div class="list has-header">
+        <div class="item item-loading" ng-show="vm.user.conversationsManager.conversationsLoading">{{'loading' | translate}}...</div>
+        <contact-item ng-repeat="conversation in vm.user.conversationsManager.conversations | convFilter:vm.uiStates.queryTerm"
+                      conversation="conversation"
+                      ng-click="vm.user.beginConversation(conversation)">
+        </contact-item>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -10,7 +10,7 @@ gulp.paths = {
   dist: 'www',
   jsFiles: ['app/**/*.js', '!app/bower_components/**/*.js'],
   jsonFiles: ['app/**/*.json', '!app/bower_components/**/*.json'],
-  templates: ['app/*/templates/**/*'],
+  templates: ['app/main/**/*.html', 'app/main/**/*.json'],
   karma: ['test/karma/**/*.js'],
   protractor: ['test/protractor/**/*.js']
 };

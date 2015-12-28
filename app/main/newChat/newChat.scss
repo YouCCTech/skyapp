@@ -1,0 +1,7 @@
+.new-chat-container {
+  .rtl & {
+    .search-form {
+      direction: rtl;
+    }
+  }
+}

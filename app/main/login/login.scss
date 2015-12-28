@@ -1,0 +1,36 @@
+.login-holder {
+  background: linear-gradient(135deg, rgb(245, 245, 245), rgb(212, 212, 212)) top left fixed;
+
+  .login-title {
+    text-align: center;
+    padding: 60px 0;
+    color: #1B5E20;
+  }
+
+  .item-checkbox {
+    .text {
+      margin-right: 40px;
+    }
+  }
+
+  .rtl & {
+    .login-title {
+      direction: rtl;
+    }
+
+    .item-input>input {
+      direction: rtl;
+    }
+
+    .item-checkbox {
+      direction: rtl;
+    }
+
+    label {
+      span {
+        text-align: right;
+        direction: rtl;
+      }
+    }
+  }
+}

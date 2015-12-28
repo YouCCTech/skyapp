@@ -1,0 +1,13 @@
+<div class="contact-item-container">
+  <div ng-if="vm.conversation.type === 'Conversation'" class="item item-avatar">
+    <img ng-src="{{ vm.conversation.person.avatarUrl }}" fallback-default-avatar-img />
+    <div class="status-badge" ng-class="vm.conversation.person.status"></div>
+    <h2>{{ vm.conversation.person.displayName }}</h2>
+    <h4 class="msg-preview">{{ vm.conversation.getLastMessagePreview() }}</h4>
+  </div>
+  <div ng-if="vm.conversation.type === 'GroupConversation'" class="item item-icon-left">
+    <i class="icon ion-android-people"></i>
+    <h2>{{ vm.conversation.name }}</h2>
+    <h4 class="msg-preview">{{ vm.conversation.getLastMessagePreview() }}</h4>
+  </div>
+</div>

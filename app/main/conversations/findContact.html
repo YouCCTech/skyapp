@@ -1,0 +1,19 @@
+<ion-modal-view class="find-contact-container" ng-controller="FindContactCtrl as findCtrl">
+  <ion-content>
+    <form ng-submit="findCtrl.search(findCtrl.query)" class="search-form">
+      <div class="bar bar-header item-input-inset">
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="{{'findSomeone' | translate}}" ng-model="findCtrl.query">
+          </label>
+          <button ng-click="vm.closeSearchModal(); findCtrl.clearStates();" class="button button-clear" type="button">{{'cancel' | translate}}</button>
+      </div>
+    </form>
+    <div class="list">
+      <contact-item ng-repeat="contact in findCtrl.contactResults"
+                    contact="contact"
+                    ng-click="vm.searchContactSelected(contact); findCtrl.clearStates();">
+      </contact-item>
+    </div>
+  </ion-content>
+</ion-modal-view>
