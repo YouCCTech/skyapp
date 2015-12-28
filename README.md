@@ -1,5 +1,5 @@
 # Welcome to Skyapp
-Skyapp is a web mobile Chat app for Skype for Business but with features like Whatsapp application.
+Skyapp is a web mobile Chat app for Skype for Business with features like Whatsapp app, built and maintained by [YouCC Technologies](http://www.youcc.net).
 
 Skyapp is build on Ionic framework and uses the Skype Web API from microsoft, The application degisned to give the look and feel of a Whatsapp app which means: adding an abstruction layer for: persistent conversations, group chats, etc.
 
