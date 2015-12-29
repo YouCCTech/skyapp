@@ -29,4 +29,5 @@
 .idea
 
 # ignore env-dev varibles
-app/main/constants/env-dev.json
+env-dev.json
+config-const.js
