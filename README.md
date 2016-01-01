@@ -51,4 +51,4 @@ gulp watch-build
 ---
 
 ## License
-MIT.
+Apache.
