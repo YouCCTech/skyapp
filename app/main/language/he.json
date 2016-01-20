@@ -31,5 +31,6 @@
   "callFrom": "שיחה מ",
   "incomingCall": "שיחה נכנסת",
   "reject": "דחה",
-  "accept": "קבל"
+  "accept": "קבל",
+  "signOut": "התנתק"
 }

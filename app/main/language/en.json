@@ -31,5 +31,6 @@
   "callFrom": "Call from",
   "incomingCall": "Incoming Call",
   "reject": "Reject",
-  "accept": "Accept"
+  "accept": "Accept",
+  "signOut": "Sign Out"
 }

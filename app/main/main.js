@@ -13,11 +13,7 @@
     // translate
     configTranslateProvider($translateProvider);
 
-
-    // ROUTING with ui.router
-    $urlRouterProvider.otherwise('/main/list');
     $stateProvider
-      // this state is placed in the <ion-nav-view> in the index.html
       .state('login', {
         url: '/login',
         templateUrl: 'main/login/login.html',

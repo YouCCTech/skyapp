@@ -2,7 +2,7 @@ $gray: #585858;
 $bg-color: #efefef;
 
 .chat-container {
-  background: $bg-color;
+  background: $bg-color !important;
 
   ion-content {
     bottom: 64px;
@@ -143,6 +143,7 @@ $bg-color: #efefef;
     align-items: center;
 
     .loader {
+      z-index: 1;
       .ion-loading-c {
         font-size: 64px;
       }

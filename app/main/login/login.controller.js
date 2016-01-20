@@ -6,6 +6,7 @@
     var vm = this;
     var $translate = $filter('translate');
 
+    vm.loading = false;
     vm.loginData = {
       username: Config.ENV.LOGIN_USER,
       password: Config.ENV.LOGIN_PW
@@ -23,6 +24,7 @@
         return;
       }
 
+      vm.loading = true;
       ManagerService.login(username, password)
         .then(function (result) {
 
@@ -32,9 +34,11 @@
             return;
           }
 
+          vm.loading = false;
           $state.go('layout.conversations');
 
         }, function (error) {
+          vm.loading = false;
           popService.alert($translate('authorizationProblem'), $translate('generalProblem'));
           console.log('Error - do login', error);
         });
